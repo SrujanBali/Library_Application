@@ -1,0 +1,22 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.Header {
+  margin-top: 80px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 80px;
+  text-shadow: -15px 5px 20px #ced0d3;
+  text-align: center;
+  color: #FBE9D0;
+  text-shadow: 5px 5px 0px indianred;
+}
+
+.catalogue-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}

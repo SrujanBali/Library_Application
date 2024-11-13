@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Itim&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+footer{
+    border-top: 2px solid black;
+    margin-top: 50px;
+}
+
+.info{
+    width: 100%;
+    color: white;
+    height: auto;
+    padding: 50px 30px 0px 30px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.dropcap{
+    margin-bottom: 20px;
+    font-weight: 100;
+}
+
+.representation{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20%;
+    padding-top: 20px;
+}
+
+.brand h1{
+    font-family:"Playwrite GB S", serif ;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+}
+
+
+.logo{
+    width: 200px;;
+}
+
+.socials{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+    padding: 10px;
+    gap: 40px;
+}
+
+.socials li{
+    font-size: 18px;
+}
+
+.socials li a{
+    text-decoration: none;
+    color: black;
+    content: none;
+    color: white;
+}
+
+.icons{
+    width: 30px;
+    height: 30px;
+    transform: translateY(20%);
+}
+
+@media(max-width:862px){
+    .removeflex{
+        display:block;
+    }
+    .center-text{
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .center-image{
+        margin: auto;
+    }
+    .representation{
+        gap: 30px;
+    }
+}
+

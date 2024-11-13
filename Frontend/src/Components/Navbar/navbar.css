@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Itim&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0;
+    background-color: #222831;
+    padding-top: 20px;
+}
+
+.navbar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+    width: 100%;
+    background-color: #E64833; 
+    color: black;
+    display: flex;
+    justify-content: space-between; 
+    align-items: stretch;
+    gap: 2rem;
+    overflow-x: hidden;
+    z-index: 999;
+    margin-bottom: 20px;
+}
+
+
+.website-name{
+    font-size: 36px;
+    text-decoration: none;
+    font-family: "Playwrite GB S", serif;
+    font-weight: 700;
+}
+
+.navbar ul{
+    padding: 0 20px 0 0 ;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    color: white;
+}
+
+.navbar a{
+    color: inherit;
+    text-decoration: none;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 6px 20px;
+}
+
+.navbar li.active {
+    background-color: beige;
+    color: black;
+}
+
+.head-logo{
+    width: 50px;
+    height: 50px;
+}
+
+.navbar .website-name h1{
+    font-size: 37px;
+    color: white;
+}
+
+.sidebar-hide{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.134);
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgb(29, 28, 28);
+    display: none !important;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.sidebar-show{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    background-color: rgba(255, 255, 255, 0.134);
+    backdrop-filter: blur(10px);
+    box-shadow: -10px 0 10px rgb(29, 28, 28);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.menu-icon img{
+    width: 50px;
+    height: 50px ;
+    margin-top: 10px;
+    display: none;
+}
+
+.sidebar-show li{
+    width: 100%;
+    height: 80px;
+}
+
+.sidebar-show li:first-child{
+    width: 30%;
+}
+
+.close-icon img{
+    width: 50px;
+    height: 50px;
+    align-self: center;
+    transform: translateX(30%);
+}
+
+.close-icon:hover{
+    background-color: transparent !important;
+}
+
+.sidebar-show a {
+    width: 100%;
+}
+
+.navbar li:hover {
+    background-color: grey;
+}
+
+@media(max-width: 862px){
+    .hideOnMobile{
+        display: none !important;
+    }
+}
+
+@media(max-width:862px){
+    .showOnMobile{
+        display: flex !important;
+    }
+}
