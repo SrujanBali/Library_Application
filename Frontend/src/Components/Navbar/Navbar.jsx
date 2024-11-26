@@ -46,12 +46,14 @@ function NavBar() {
       </Link>
       <ul className = {Sdisplay} ref={Navref}>
         <li onClick={hidesidebar} className="close-icon" ><img src={closeicon} alt="Close" /></li>
+        <ActivePage to="/search"> Search Books</ActivePage>
         <ActivePage to="/">Books Catalogue</ActivePage>
         <ActivePage to="/contact">Contact</ActivePage>
         <ActivePage to="/about">About Us</ActivePage>
         <ActivePage to="/addbook">Add A Book</ActivePage>
       </ul>
-      <ul>
+      <ul className="sidebar">
+        <input type="text" placeholder="Search Books" className="hideOnMobile"/>
         <ActivePage className = "hideOnMobile" to="/">Books Catalogue</ActivePage>
         <ActivePage className = "hideOnMobile" to="/contact">Contact</ActivePage>
         <ActivePage className = "hideOnMobile" to="/about">About Us</ActivePage>

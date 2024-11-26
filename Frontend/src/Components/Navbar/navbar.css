@@ -22,9 +22,8 @@ body{
     background-color: #E64833; 
     color: black;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-evenly; 
     align-items: stretch;
-    gap: 2rem;
     overflow-x: hidden;
     z-index: 999;
     margin-bottom: 20px;
@@ -55,6 +54,7 @@ body{
     padding: 6px 20px;
 }
 
+
 .navbar li.active {
     background-color: beige;
     color: black;
@@ -68,6 +68,29 @@ body{
 .navbar .website-name h1{
     font-size: 37px;
     color: white;
+}
+
+.navbar ul input{
+    height: 60%;
+    width: 50%;
+    margin-right: 40px;
+    align-self: center;
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size:16px;
+}
+
+.navbar ul input::placeholder{
+    text-align: center;
+    font-size: 20px;
+}
+
+.navbar ul input:focus{
+    outline: none;
+}
+
+.navbar ul input:focus::placeholder{
+    color: transparent;
 }
 
 .sidebar-hide{
@@ -137,14 +160,26 @@ body{
     background-color: grey;
 }
 
-@media(max-width: 862px){
+@media(max-width:1122px){
     .hideOnMobile{
         display: none !important;
     }
 }
 
-@media(max-width:862px){
+@media(min-width:1122px){
+    .hideOnDesktop{
+        display: none !important;
+    }
+}
+
+@media(max-width:1122px){
     .showOnMobile{
         display: flex !important;
+    }
+}
+
+@media(max-width: 1122px){
+    .navbar{
+        justify-content: space-between;
     }
 }

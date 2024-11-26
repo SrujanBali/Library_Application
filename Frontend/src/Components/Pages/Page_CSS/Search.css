@@ -1,0 +1,33 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.search{
+    display: flex;
+    margin-top: 80px;
+    width: 100%;
+    height: fit-content;
+    justify-content: center;
+    align-items: center;
+}
+
+.search input{
+    height: 50px;
+    font-size: 25px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.search input::placeholder{
+    font-size: 30px;
+    text-align: center;
+}
+
+.search input:focus{
+    outline: none;
+}
+
+.search input:focus::placeholder{
+    color: transparent;
+}
