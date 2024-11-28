@@ -7,7 +7,6 @@ import About from "./Components/Pages/About.jsx"
 import AddBook from "./Components/Pages/AddBook.jsx"
 import BookDetails from "./Components/Cards/BookDetails.jsx"
 import  ScrollToTop  from "./ProperScroll.jsx"
-import Search from "./Components/Pages/Search.jsx"
 
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
             <Route path="/about" element = {<About />}/>
             <Route path="/AddBook" element = {<AddBook />}/>
             <Route path="/bookdetails/:id" element = {<BookDetails/>}/>
-            <Route path="/search" element = {<Search/>}/>
         </Routes>
         <Footer />
         </>
