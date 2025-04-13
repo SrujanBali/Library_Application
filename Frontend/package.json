@@ -11,6 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@auth0/auth0-react": "^2.3.0",
     "colorthief": "^2.6.0",
     "library_website": "file:..",
     "react": "^18.3.1",

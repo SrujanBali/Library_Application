@@ -90,7 +90,7 @@ body{
     position: fixed;
     top: 0;
     right: 0;
-    height: 100vh;
+    height: 100%;
     width: 250px;
     z-index: 999;
     background-color: rgba(255, 255, 255, 0.134);
@@ -135,6 +135,30 @@ body{
 
 .navbar li:hover {
     background-color: grey;
+}
+
+.user-image{
+    width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid white;
+  margin: 20px 20px 20px 20px;
+  object-fit: cover;
+  display: flex;
+  align-items: center;
+}
+
+.logger{
+    height: 100%;
+    padding: 6px 20px;
+    display: flex;
+    align-items: center;
+    background-color: #222831;
+}
+
+.logger:hover{
+    background-color: beige !important;
+    color: black;
 }
 
 @media(max-width:950px){

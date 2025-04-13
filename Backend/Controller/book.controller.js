@@ -24,7 +24,7 @@ export const getBook = async (req, res) => {
         } catch (error) {
             console.error("Error in getting the book", error.message)
             res.status(500).json({success: false, message: "Server Error"})
-        }
+        }  
     }
 }
 
