@@ -3,46 +3,54 @@ import menuicon from "../assets/menu.webp";
 import closeicon from "../assets/close.webp";
 import Logo from "../assets/Logo.webp";
 import usericon from "../assets/User.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import ActivePage from "./ActivePageFunc.jsx";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function NavBar() {
   const Navref = useRef(null);
-  const { loginWithRedirect, logout, user, isAuthenticated } = useAuth0();
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
-  function handleClickOutside(event) {
-    if (Navref.current && !Navref.current.contains(event.target)) {
-      setSdisplay("sidebar-hide");
-    }
-  }
-
+  const { loginWithRedirect, logout, isAuthenticated, isLoading } = useAuth0();
+  const navigate = useNavigate()
+ 
   const [Sdisplay, setSdisplay] = useState("sidebar-hide");
 
-  const displaysidebar = () => {
-    if (Sdisplay !== "sidebar-show") {
-      setSdisplay("sidebar-show");
-    } else {
-      setSdisplay("sidebar-hide");
+  useEffect(() => {
+    if (!isLoading) {
+      const handleClickOutside = (event) => {
+        if (Navref.current && !Navref.current.contains(event.target)) {
+          setSdisplay("sidebar-hide");
+        }
+      };
+
+      document.addEventListener("mousedown", handleClickOutside);
+
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
     }
+  }, [isLoading]);
+
+  if (isLoading) {
+    return null; 
+  }
+
+  const displaysidebar = () => {
+    setSdisplay(Sdisplay !== "sidebar-show" ? "sidebar-show" : "sidebar-hide");
   };
 
   const hidesidebar = () => {
-    if (Sdisplay !== "sidebar-hide") {
-      setSdisplay("sidebar-hide");
-    } else {
-      setSdisplay("sidebar-show");
-    }
+    setSdisplay(Sdisplay !== "sidebar-hide" ? "sidebar-hide" : "sidebar-show");
   };
+
+  const handleUserImage = () =>{
+    navigate("/userinfo");
+  }
+
+  const handleImageError = (e) => {
+    e.target.src = usericon; 
+  };
+
   return (
     <nav className="navbar">
       <Link to="/" className="website-name">
@@ -64,33 +72,20 @@ function NavBar() {
           </li>
         ) : (
           <>
-            <li className="user-info">
-              <img
-                className="user-image"
-                src={usericon}
-                alt="User Profile"
-              />
+            <li className="user-info" onClick={handleUserImage}>
+              <img className="user-imagenav" src={usericon} alt="User Profile" onError={handleImageError}/>
             </li>
-            <li
-              className="logger"
-              onClick={() => logout({ returnTo: window.location.origin })}
-            >
+            <li className="logger" onClick={() => logout({ returnTo: window.location.origin })}>
               Log Out
             </li>
           </>
         )}
       </ul>
       <ul className="sidebar">
-        <ActivePage className="hideOnMobile" to="/">
-          Books Catalogue
-        </ActivePage>
-        <ActivePage className="hideOnMobile" to="/contact">
-          Contact
-        </ActivePage>
-        <ActivePage className="hideOnMobile" to="/about">
-          About Us
-        </ActivePage>
-        {isAuthenticated && <ActivePage className = "hideOnMobile" to="/addbook">Add A Book</ActivePage>}
+        <ActivePage className="hideOnMobile" to="/">Books Catalogue</ActivePage>
+        <ActivePage className="hideOnMobile" to="/contact">Contact</ActivePage>
+        <ActivePage className="hideOnMobile" to="/about">About Us</ActivePage>
+        {isAuthenticated && <ActivePage className="hideOnMobile" to="/addbook">Add A Book</ActivePage>}
         <li onClick={displaysidebar} className="menu-icon">
           <img src={menuicon} alt="Menu" className="showOnMobile" />
         </li>
@@ -101,13 +96,10 @@ function NavBar() {
           </li>
         ) : (
           <>
-            <li>
-              <img className="user-image hideOnMobile" src={usericon} alt="User Image" />
+            <li className="image-box" onClick={handleUserImage}>
+              <img className="user-imagenav hideOnMobile" src={usericon} alt="User Image" onError={handleImageError} />
             </li>
-            <li
-              className="logger hideOnMobile"
-              onClick={() => logout({ returnTo: window.location.origin })}
-            >
+            <li className="logger hideOnMobile" onClick={() => logout({ returnTo: window.location.origin })}>
               Log Out
             </li>
           </>

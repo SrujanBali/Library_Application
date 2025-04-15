@@ -7,6 +7,7 @@ import About from "./Components/Pages/About.jsx"
 import AddBook from "./Components/Pages/AddBook.jsx"
 import BookDetails from "./Components/Cards/BookDetails.jsx"
 import ProtectedRoute from "./Components/ProtectedRoute.jsx"
+import UserInfo from "./Components/Pages/UserInfo.jsx"
 import  ScrollToTop  from "./ProperScroll.jsx"
 
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/about" element = {<About />}/>
             <Route path="/AddBook" element = {<ProtectedRoute><AddBook /></ProtectedRoute>}/>
             <Route path="/bookdetails/:id" element = {<BookDetails/>}/>
+            <Route path="/userinfo" element = {<UserInfo/>}/>
         </Routes>
         <Footer />
         </>
