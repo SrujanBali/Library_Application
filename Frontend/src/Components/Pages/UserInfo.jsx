@@ -19,12 +19,28 @@ function UserInfo() {
   return (
     <div className="user-container">
       {isAuthenticated ? (
-        <div className="user-image">
+        <div className="user-info">
+          <li>
           {user?.picture ? (
             <img src={user.picture} alt="User Image" referrerPolicy="no-referrer" />
           ) : (
             <img src={usericon} alt="Default Image" />
           )}
+          </li>
+          <li>
+            {user?.name ?(
+              <span>Name:&nbsp;&nbsp;&nbsp;{user.name}</span>
+            ):(
+              <span>No name found</span>
+            )}
+          </li>
+          <li>
+            {user?.email ?(
+              <span>Email:&nbsp;&nbsp;&nbsp;{user.email}</span>
+            ):(
+              <span>Email Not found</span>
+            )}
+          </li> 
         </div>
       ) : (
         <div className="error-message">
